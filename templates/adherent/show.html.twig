@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adherent {% endblock %}
+
+{% block body %}
+    <h1>Adherent</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ adherent.id }}</td>
+            </tr>
+            <tr>
+                <th>NumLicence</th>
+                <td>{{ adherent.numLicence }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ adherent.prenom }}</td>
+            </tr>
+			<tr>
+                <th>Nom</th>
+                <td>
+				{% for nom in adherent.getDesNoms() %}
+					{{ nom.getNom() }}  <br/>
+				{% endfor %}
+				</td>
+            </tr>
+            <tr>
+                <th>DateNaiss</th>
+                <td>{{ adherent.dateNaiss ? adherent.dateNaiss|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Rue</th>
+                <td>{{ adherent.rue }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ adherent.ville }}</td>
+            </tr>
+            <tr>
+                <th>Cp</th>
+                <td>{{ adherent.cp }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ adherent.sexe }}</td>
+            </tr>
+			<tr>
+				<th>Mail</th>
+				<td>
+				{% for mail in adherent.getLesMails() %}
+					{{ mail.getMail() }} {{ mail.getUnTypeParent() }} <br/>
+				{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Téléphone</th>
+				<td>
+				{% for tel in adherent.getLesTel() %}
+					{{ tel.getNumero() }} {{ tel.getUnTypeParent() }} <br/>
+				{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Categorie</th>
+				<td>{{ adherent.uneCateg }}
+			</tr>
+			<tr>
+				<th>Personne Confiance</th>
+				<td>
+				{% for personne in adherent.getDesPersonnesConf() %}
+					{{ personne.getNom() }}  <br/>
+				{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Passeport</th>
+				<td>{{ adherent.unPass }}
+			</tr>
+			<tr>
+				<th>les adhérer</th>
+				<td>
+				{% for adh in adherent.getLesAdherer() %}
+					{{ adh }} 	<a href="{{ path('adherent_pdf', {'idA': adherent.id, 'idAdhere': adh.id })}}">PDF</a><br/>
+				{% endfor %}
+				</td>
+			</tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('adherent_index') }}">back to list</a>
+
+    <a href="{{ path('adherent_edit', {'id': adherent.id}) }}">edit</a>
+	<br/>
+
+    {{ include('adherent/_delete_form.html.twig') }}
+{% endblock %}

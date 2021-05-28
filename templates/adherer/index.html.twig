@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adherer index{% endblock %}
+
+{% block body %}
+    <h1>Adherer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+				<th>L'adherent</th>
+				<th>Saison</th>
+				<th>Ceinture</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for adherer in adherers %}
+            <tr>
+                <td>{{ adherer.id }}</td>
+				<td>{{ adherer.unAdherent }}</td>
+				<td>{{ adherer.uneSaison }}</td>
+				<td>{{ adherer.uneCeinture }}</td>
+                <td>
+                    <a href="{{ path('adherer_show', {'id': adherer.id}) }}">show</a>
+                    <a href="{{ path('adherer_edit', {'id': adherer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('adherer_new') }}">Create new</a>
+{% endblock %}

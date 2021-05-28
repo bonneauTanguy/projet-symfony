@@ -1,0 +1,28 @@
+<html>
+	<link href="style.css" rel="stylesheet">
+	
+	<div id="cadreMail">
+		<pre>    adresse e-mail: -  
+		    - </br> <font size=-2>Votre adresse mail est très importante, dans le cadre de la communication entre les responsables et vous:</font>
+		</pre>
+	</div>
+	<p>Je soussigné(e), M., Melle, Mme,</p>
+	<p> Adhérent majeur 1 2 3 ou Père, mère, tuteur, représentant légal de l'enfant 1 2 3 4 5 6:<br/>
+		1 Certifie avoir pris connaissance du réglement intérieur et du protocole sanitaire et m'engage à les<br/> respecter.<br/>
+		2 Loi "Informatique, fichiers et libertés". Si vous souhaitez que vos données à caractère personnel<br/> soient communiquées à des tiers à des fins de prospection, veuillez cocher la case suivante:<input type="checkbox"> <br/>
+		3 Certifie avoir pris connaissance du contrat d'assurance et souhaite prendre une licence FFJDA. <br/>
+		4 En cas d'accident, et sur avis médical, j'autorise le transfert de mon enfant vers un secteur <br/>hospitalier. <input type="checkbox">OUI <input type="checkbox">NON<br/>
+		5 A l'issue du cours, j'autorise mon enfant à repartir seul du Dojo: <input type="checkbox">OUI <input type="checkbox">NON<br/>
+		6 J'autorise les personnes nommées ci-après, à prendre mon enfant à la fin du cours:<br/><br/><br/><br/>
+		Fait à Azay le Rideau, le<br/><br/>
+		<u>Signature du déclarant <div id="cadreSignature">
+		</div></u>
+		
+		<div id="centrer">
+			<b><font size=-1>Judo Club Ridellois -</b> Dojo Municipal - 54 avenue de la gare - 37190 Azay le Rideau<br/>
+			site web <u>http://www.judo-club-ridellois.fr</u> mail: judo.jcr@orange.fr<br/>
+			D.D.J.S. Agrement ministériel n°37.S.700 - N° de SIRET: 39301014500018
+		</font>
+		</div>
+	</p>
+</html>

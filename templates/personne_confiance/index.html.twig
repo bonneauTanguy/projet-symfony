@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PersonneConfiance index{% endblock %}
+
+{% block body %}
+    <h1>PersonneConfiance index</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Tel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personne_confiance in personne_confiances %}
+            <tr>
+                <td>{{ personne_confiance.id }}</td>
+                <td>{{ personne_confiance.nom }}</td>
+                <td>{{ personne_confiance.prenom }}</td>
+                <td>{{ personne_confiance.tel }}</td>
+                <td>
+                    <a href="{{ path('personne_confiance_show', {'id': personne_confiance.id}) }}">show</a>
+                    <a href="{{ path('personne_confiance_edit', {'id': personne_confiance.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('personne_confiance_new') }}">Create new</a>
+{% endblock %}

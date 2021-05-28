@@ -1,0 +1,19 @@
+#cadreMail {
+	border-width:3px;
+	border-style: double;
+	border-color:black;
+	max-width: 800px;
+}
+#cadreSignature{
+	border-width:1px;
+	border-style: solid;
+	background-color: transparent;
+	border-color:black;
+	max-width: 300px;
+	min-height: 60px;
+	margin-left: 180px;
+	margin-top: -40px;
+}
+#centrer{
+	text-align: center;
+}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeParent index{% endblock %}
+
+{% block body %}
+    <h1>TypeParent index</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>LibelleParent</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_parent in type_parents %}
+            <tr>
+                <td>{{ type_parent.id }}</td>
+                <td>{{ type_parent.libelleParent }}</td>
+                <td>
+                    <a href="{{ path('type_parent_show', {'id': type_parent.id}) }}">show</a>
+                    <a href="{{ path('type_parent_edit', {'id': type_parent.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_parent_new') }}">Create new</a>
+{% endblock %}

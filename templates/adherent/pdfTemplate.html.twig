@@ -1,0 +1,115 @@
+<html>
+  <head>
+   <link rel="stylesheet" href="css/style.css" />
+   <style>
+   #cadreMail {
+	border-width:3px;
+	border-style: double;
+	border-color:black;
+	max-width: 800px;
+}
+#cadreSignature{
+	border-width:1px;
+	border-style: solid;
+	background-color: transparent;
+	border-color:black;
+	max-width: 300px;
+	min-height: 60px;
+	margin-left: 180px;
+	margin-top: -40px;
+}
+#centrer{
+	text-align: center;
+}
+
+#logo {
+    float:left;
+}
+#right {
+    margin-left: 20%;
+	width : 80%;
+}
+
+#fiche{
+	text-align: center;
+	border: 1px solid black;
+	width : 100%;
+	display:block
+}
+   </style>
+  </head>
+  <body> 
+	<div id="content">
+		<b> Saison {{ adhere.uneSaison }}</b>
+		<div id="head">
+			<div id="logo">
+				<img src="logoJCR.jpeg">
+			</div>
+			<div id="right">
+				<div id="Licencie">
+					<b> Licencié : {{ adherent.numLicence }}   Catégorie : {{ adherent.uneCateg }}</b>
+				</div>
+				<div id="Titre">
+					<b id="fiche"> FICHE D'IDENTITÉ DE L'ADHERENT </b>
+				</div>
+				<div>
+					<br>
+					<pre> 
+		Pièces à fournir au club:    Certificat medical Date: {{ adherent.unCertificat }} Compétition <input type="checkbox">
+		Possède un passeport de Judo: Oui <input type="checkbox"> Non <input type="checkbox">    Pas Compétition <input type="checkbox"> 
+		Prêt de kimono:               Oui <input type="checkbox"> Non <input type="checkbox"> 
+		Achat de kimono:              Oui <input type="checkbox"> Non <input type="checkbox"> Taille:..... Tarif:...
+	NB:<b style= "font-size: xx-small">Le certificat médical est obligatoire, à faire enregistrer sur le passeport si vous en êtes titulaire.</b></pre>
+	<br>
+	<br>
+				</div>
+			</div>
+		</div>
+		<div id="identite">
+		<br>
+			<pre>
+		NOM DE FAMILLE:         - {% for nom in adherent.getDesNoms() %}
+					{{ nom.getNom() }}  <br/>
+				{% endfor %}
+		
+		ADHERENT:                                                N°Licence Réserve FFJDA
+			NOM:                {% for nom in adherent.getDesNoms() %}
+					- {{ nom.getNom() }} 
+				{% endfor %}
+			Prénom:             - {{ adherent.prenom }}       Ceinture: - {{ adhere.uneCeinture }}
+			Date de naissance:  - {{ adherent.getSDateNaiss() }}     <input type="checkbox"> enfant <input type="checkbox"> adulte
+		Adresse:                    - {{ adherent.rue }}
+									- {{ adherent.cp }}   - {{adherent.ville}}
+								
+		Téléphone(s):           {% for tel in adherent.getLesTel() %}
+					- {{ tel.getNumero() }} {{ tel.getUnTypeParent() }} <br/>
+				{% endfor %}
+			
+			</pre>
+		</div>
+	<div id="cadreMail">
+		<pre>    adresse e-mail: {% for mail in adherent.getLesMails() %}
+					-{{ mail.getMail() }} {{ mail.getUnTypeParent() }} <br/>
+				{% endfor %}
+		    </br> <font size=-2>Votre adresse mail est très importante, dans le cadre de la communication entre les responsables et vous:</font></pre>
+	</div>
+	<p>Je soussigné(e), M., Melle, Mme,</p>
+	<p> Adhérent majeur 1 2 3 ou Père, mère, tuteur, représentant légal de l'enfant 1 2 3 4 5 6:<br/>
+		1 Certifie avoir pris connaissance du réglement intérieur et du protocole sanitaire et m'engage à les<br/> respecter.<br/>
+		2 Loi "Informatique, fichiers et libertés". Si vous souhaitez que vos données à caractère personnel<br/> soient communiquées à des tiers à des fins de prospection, veuillez cocher la case suivante:<input type="checkbox"> <br/>
+		3 Certifie avoir pris connaissance du contrat d'assurance et souhaite prendre une licence FFJDA. <br/>
+		4 En cas d'accident, et sur avis médical, j'autorise le transfert de mon enfant vers un secteur <br/>hospitalier. <input type="checkbox">OUI <input type="checkbox">NON<br/>
+		5 A l'issue du cours, j'autorise mon enfant à repartir seul du Dojo: <input type="checkbox">OUI <input type="checkbox">NON<br/>
+		6 J'autorise les personnes nommées ci-après, à prendre mon enfant à la fin du cours:<br/><br/><br/><br/>
+		Fait à Azay le Rideau, le<br/><br/>
+		<u>Signature du déclarant</u>
+		<div id="cadreSignature">
+		</div>
+		<b id="centrer"><font size=-1>Judo Club Ridellois -</b> Dojo Municipal - 54 avenue de la gare - 37190 Azay le Rideau<br/>
+		site web <u>http://www.judo-club-ridellois.fr</u> mail: judo.jcr@orange.fr<br/>
+		D.D.J.S. Agrement ministériel n°37.S.700 - N° de SIRET: 39301014500018
+		</font>
+	</p>
+			
+  </body>
+</html>

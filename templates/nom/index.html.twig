@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nom index{% endblock %}
+
+{% block body %}
+    <h1>Nom index</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for nom in noms %}
+            <tr>
+                <td>{{ nom.id }}</td>
+                <td>{{ nom.nom }}</td>
+                <td>
+                    <a href="{{ path('nom_show', {'id': nom.id}) }}">show</a>
+                    <a href="{{ path('nom_edit', {'id': nom.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('nom_new') }}">Create new</a>
+{% endblock %}

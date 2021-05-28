@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypeParent{% endblock %}
+
+{% block body %}
+    <h1>Create new TypeParent</h1>
+
+    {{ include('type_parent/_form.html.twig') }}
+
+    <a href="{{ path('type_parent_index') }}">back to list</a>
+{% endblock %}
